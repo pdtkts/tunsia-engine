@@ -20,7 +20,7 @@
     "linux-x64",
     "linux-arm64"
   ],
-  "_updated": "2026-11-06",
+  "_updated": "2026-11-08",
   "_mirror": "Engine archives are mirrored to https://github.com/pdtkts/tunsia-engine (public, one release per Chromium build). Upstream's CDN keeps only ONE archive per platform key and overwrites it in place on every bump, so any build not captured in this repo is unrecoverable — 148/149/152/156 are all gone this way. Widevine stays on the upstream CDN key because its etags are byte-stable across engine bumps.",
   "shardx": {
     "_source": "Mirrored: https://github.com/pdtkts/tunsia-engine/releases/download/<tag>/<asset>. Upstream origin was the shared CDN key https://pub-e57a7c60f6934eb09a6600bf2fc59cdc.r2.dev/<key>, which holds only the CURRENT build behind each platform key.",
@@ -177,20 +177,22 @@
       }
     },
     "157.0.8103.39": {
-      "_note": "Current build (upstream runtime.json @ de6db25, v2.1.3, engine_build 1). Mirrored to tunsia-engine on 2026-11-06: every platform etag below was byte-verified against upstream's own runtime.json archives map at capture time, and the sha256 is of the archived bytes. This is the first build whose archive survives an upstream bump.",
+      "_note": "Current build (upstream runtime.json @ 4564ae0, v2.1.4, engine_build 3). Upstream RE-CUT this Chromium version on 2026-11-08 — the archives behind the shared CDN key were replaced while the version stayed 157.0.8103.39 — so the pins below were re-captured the same day and published as release engine-157.0.8103.39-b3. The build-1 bytes mirrored on 2026-11-06 still live under tag engine-157.0.8103.39, kept so an install pinned to them stays recoverable. sha256 is of the archived bytes; every etag was byte-verified against upstream's runtime.json archives map at capture time.",
+      "_android_chromium_version": "157.0.8103.38",
+      "_android_chromium_version_note": "Chrome for Android build of the same major, from upstream runtime.json @ a65ba23 (v2.1.4). A phone profile reports this instead of the desktop build (Android ships its own build numbers, and a phone with a desktop one is a build no phone has). Kept per engine version; refreshed with the capture when upstream moves it.",
       "windows-x64": {
-        "url": "https://github.com/pdtkts/tunsia-engine/releases/download/engine-157.0.8103.39/ShardX-Windows.zip",
+        "url": "https://github.com/pdtkts/tunsia-engine/releases/download/engine-157.0.8103.39-b3/ShardX-Windows.zip",
         "widevine_url": "https://pub-e57a7c60f6934eb09a6600bf2fc59cdc.r2.dev/ShardX-Widevine-Win.zip",
-        "etag": "12d7b8cdc67fdd42ebe803731334f295-26",
-        "sha256": "f1ac6414b75e60e92e498ebfca057cb4b37c55b43bcb2cce494ddeb2877c2c2b",
-        "note": "mirrored from the shared CDN key; etag matches upstream runtime.json @ de6db25"
+        "etag": "092a8d87e72b719d2f4fdd30a15dc698-26",
+        "sha256": "6b5a06b4653e821f820c113741be89b574a4e6f8cbbcc3515f54d13e72bc4907",
+        "note": "mirrored from the shared CDN key; etag matches upstream runtime.json @ 4564ae0 (engine_build 3)"
       },
       "macos-arm64": {
-        "url": "https://github.com/pdtkts/tunsia-engine/releases/download/engine-157.0.8103.39/ShardX-Mac-arm64.zip",
+        "url": "https://github.com/pdtkts/tunsia-engine/releases/download/engine-157.0.8103.39-b3/ShardX-Mac-arm64.zip",
         "widevine_url": "https://pub-e57a7c60f6934eb09a6600bf2fc59cdc.r2.dev/ShardX-Widevine-Mac-arm64.zip",
-        "etag": "250f9b462286b22b099a89393670ba17-21",
-        "sha256": "93d7a68fdb8596b13fc0fc7487af48b9283740affbc2e86da8c3a48ccef8bd67",
-        "note": "mirrored from the shared CDN key; etag matches upstream runtime.json @ de6db25"
+        "etag": "fc75fc21464eab135e42dda80a6d2e72-21",
+        "sha256": "663e49439276bd500ad60184bd59a64c6e9c17722f6234289cf23f4994c00944",
+        "note": "mirrored from the shared CDN key; etag matches upstream runtime.json @ 4564ae0 (engine_build 3)"
       },
       "macos-x64": {
         "url": "",
@@ -200,11 +202,11 @@
         "note": "no published mac-x64 archive upstream"
       },
       "linux-x64": {
-        "url": "https://github.com/pdtkts/tunsia-engine/releases/download/engine-157.0.8103.39/ShardX-Linux.zip",
+        "url": "https://github.com/pdtkts/tunsia-engine/releases/download/engine-157.0.8103.39-b3/ShardX-Linux.zip",
         "widevine_url": "https://pub-e57a7c60f6934eb09a6600bf2fc59cdc.r2.dev/ShardX-Widevine-Linux.zip",
-        "etag": "49ceaa31754014bec1152e6da1caf7c2-26",
-        "sha256": "bc56757ce7b771ac91746d620d847de60d510bebd68da5479edb79730a19de0f",
-        "note": "mirrored from the shared CDN key; etag matches upstream runtime.json @ de6db25"
+        "etag": "d3c995bf872afc27fb63fd49b2ddcbc8-27",
+        "sha256": "6b8ae29dcfc571c75881605ad03e7e7b4229d3a1dd85179860ef0956d772bfc2",
+        "note": "mirrored from the shared CDN key; etag matches upstream runtime.json @ 4564ae0 (engine_build 3)"
       },
       "linux-arm64": {
         "url": "",
@@ -215,7 +217,7 @@
       }
     },
     "_fingerprints_archive": {
-      "_note": "Cross-platform fingerprint library zip (seeds the fingerprints dir). Version-independent in practice, but the build moves with the Chromium bump — this copy is the one matching the 157 engine. Mirrored 2026-11-06; the upstream key was still serving the same bytes at capture time.",
+      "_note": "Cross-platform fingerprint library zip (seeds the fingerprints dir). Version-independent in practice, but the build moves with the Chromium bump — this copy is the one matching the 157 engine. Mirrored 2026-11-06; the upstream key was still serving the same bytes at capture time. Unchanged by the build-3 re-cut and still served from the engine-157.0.8103.39 release.",
       "url": "https://github.com/pdtkts/tunsia-engine/releases/download/engine-157.0.8103.39/ShardX-Fingerprints.zip",
       "etag": "581bb1c58b8c12f38007916a61a222b7",
       "sha256": "68b5f63ad4c290a99617d3628d99191e5def01f4082a8d1446c2bd6ab48cd1ff"
